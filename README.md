@@ -53,7 +53,7 @@ Contraintes:
 ------------
 
 
-* 2 cpu - 1G ram - pas de contraintes sur les disques (aussi bien en quantité de données que en nombre de fichiers intermediaire)
+* 2 cpu - 512M ram - pas de contraintes sur les disques (aussi bien en quantité de données que en nombre de fichiers intermediaire)
 * efficacité (temps d'execution % resources consommé)
 * nombre de produit en constante evolution
 * nombre de tx en grande evolution
