@@ -4,7 +4,7 @@ Le but de cet exercice est de determiner la capacité du candidat à implementer
 Enoncé:
 --------
 
-Nos magasins produise tout les jours des fichiers de logs contenant les informations relatives a leur activité de vente journaliere. De plus, chaque magasin possede son propre referentiel de prix journalier.
+Nos magasins produisent tous les jours des fichiers de logs contenant les informations relatives a leur activité de vente journaliere. De plus, chaque magasin possede son propre referentiel de prix journalier.
 
 
 Le fichier des transactions journalieres contient ces infos: `txId|datetime|magasin|produit|qte`
@@ -31,12 +31,22 @@ vous trouverez joint a cet énoncer deux fichiers exemples qui vous permetterons
 
 Nous avons besoin de determiner, chaque jour,les 100 produits qui ont les meilleures ventes et ceux qui genere le plus gros Chiffre d'affaire par magasin et en general.
 De plus, on besoin d'avoir ces memes indicateurs sur les 7 derniers jours.
+Les resultats sont les fichiers:
+	
+1. `top_100_ventes_<MAGASIN_ID>_YYYYMMDD.data` 
+2. `top_100_ventes_GLOBAL_YYYYMMDD.data`
+3. `top_100_ca_<MAGASIN_ID>_YYYYMMDD.data`
+4. `top_100_ca_GLOBAL_YYYYMMDD.data`
+5. `top_100_ventes_<MAGASIN_ID>_YYYYMMDD-J7.data` 
+6. `top_100_ventes_GLOBAL_YYYYMMDD-J7.data`
+7. `top_100_ca_<MAGASIN_ID>_YYYYMMDD-J7.data`
+8. `top_100_ca_<MAGASIN_ID>_YYYYMMDD-J7.data`
 
 Contexte:
 ---------
 	
-* nb magasin = actuellement 1200 grossis en moyenne de 10 par an.
-* nb de produits actuel = quelques millions avec quelque milliers en plus par an.
+* nb magasin = actuellement 1200, croit en moyenne de 10 par an.
+* nb de produits actuel = quelques millions avec quelques milliers en plus par an.
 * nb de tx/j actuel = quelques millions et augmente significativement chaque mois.
 
 Contraintes:
