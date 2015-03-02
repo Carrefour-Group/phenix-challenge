@@ -23,8 +23,8 @@ Notre systeme collecte toutes les informations des transactions de tous les maga
 Par contre les fichiers de referentiels produits sont recu par magasin.
 Les regles de nommage de ces fichiers sont les suivantes:
 
-les transactions : `transactions_YYYYMMDD.data`
-les referentiels : `reference_prod_ID-MAGASIN_YYYYMMDD.data` ou ID_MAGASIN est un UUID.
+  - les transactions : `transactions_YYYYMMDD.data`
+  - les referentiels : `reference_prod_ID-MAGASIN_YYYYMMDD.data` ou ID_MAGASIN est un UUID.
 
 vous trouverez joint a cet énoncer deux fichiers exemples qui vous permetterons d'avoir une idée concrete de leur contenu.
 
