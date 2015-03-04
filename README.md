@@ -52,12 +52,12 @@ Contexte:
 Contraintes:
 ------------
 
-
 * 2 cpu - 512M ram - pas de contraintes sur les disques (aussi bien en quantité de données que en nombre de fichiers intermediaire)
 * efficacité (temps d'execution % resources consommé)
 * nombre de produit en constante evolution
 * nombre de tx en grande evolution
 * pas de backend (base de données, Hadoop, spark, ou autre)
+* Languages: Scala, Java, Bash.
 
 Livrable:
 ----------
