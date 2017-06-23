@@ -1,15 +1,15 @@
-Le but de cet exercice est de determiner la capacité du candidat à implementer une reponse complete a un besoin concret montrant ses capacités a produire une solution efficace avec un code de qualité. 
+Le but de cet exercice est de déterminer la capacité du candidat à implementer une réponse complete à un besoin concret montrant ses capacités a produire une solution efficace avec un code de qualité. 
 
 
 Enoncé:
 --------
 
-Nos magasins produisent tous les jours des fichiers de logs contenant les informations relatives a leur activité de vente journaliere. De plus, chaque magasin possede son propre referentiel de prix journalier.
+Nos magasins produisent tous les jours des fichiers de logs contenant les informations relatives a leur activité de vente journalière. De plus, chaque magasin possede son propre référentiel de prix journalier.
 
 
-Le fichier des transactions journalieres contient ces infos: `txId|datetime|magasin|produit|qte`
+Le fichier des transactions journalières contient ces infos: `txId|datetime|magasin|produit|qte`
  
-Et celui du referencetiel produit: `produit|prix`
+Et celui du référentiel produit: `produit|prix`
 
 ou:
  - txId : id de transaction (nombre)
@@ -19,18 +19,18 @@ ou:
  - qte : quantité (nombre)  
  - prix : prix du produit en euros
 
-Notre systeme collecte toutes les informations des transactions de tous les magasins en un seul fichier.
-Par contre les fichiers de referentiels produits sont recu par magasin.
-Les regles de nommage de ces fichiers sont les suivantes:
+Notre système collecte toutes les informations des transactions de tous les magasins en un seul fichier.
+Par contre les fichiers de référentiels produits sont reçu par magasin.
+Les règles de nommage de ces fichiers sont les suivantes:
 
   - les transactions : `transactions_YYYYMMDD.data`
-  - les referentiels : `reference_prod_ID-MAGASIN_YYYYMMDD.data` ou ID_MAGASIN est un UUID.
+  - les référentiels : `reference_prod_ID-MAGASIN_YYYYMMDD.data` ou ID_MAGASIN est un UUID.
 
-vous trouverez joint a cet énoncer deux fichiers exemples qui vous permetterons d'avoir une idée concrete de leur contenu.
+vous trouverez joint à cet énoncé deux fichiers exemples qui vous permettront d'avoir une idée concrète de leur contenu.
 
+Nous avons besoin de déterminer, chaque jour,les 100 produits qui ont les meilleures ventes et ceux qui génère le plus gros Chiffre d'affaire par magasin et en général.
 
-Nous avons besoin de determiner, chaque jour,les 100 produits qui ont les meilleures ventes et ceux qui genere le plus gros Chiffre d'affaire par magasin et en general.
-De plus, on besoin d'avoir ces memes indicateurs sur les 7 derniers jours.
+De plus, on a besoin d'avoir ces mêmes indicateurs sur les 7 derniers jours.
 Les resultats sont les fichiers:
 	
 1. `top_100_ventes_<MAGASIN_ID>_YYYYMMDD.data` 
@@ -46,34 +46,32 @@ Contexte:
 ---------
 	
 * nb magasin = actuellement 1200, croit en moyenne de 10 par an.
-* nb de produits actuel = quelques millions avec quelques milliers en plus par an.
+* nb de produits actuels = quelques millions avec quelques milliers de plus par an.
 * nb de tx/j actuel = quelques millions et augmente significativement chaque mois.
 
 Contraintes:
 ------------
 
-* 2 cpu - 512M ram - pas de contraintes sur les disques (aussi bien en quantité de données que en nombre de fichiers intermediaire)
+* 2 cpu - 512M ram - pas de contraintes sur les disques (aussi bien en quantité de données que en nombre de fichiers intermediaires)
 * efficacité (temps d'execution % resources consommé)
-* nombre de produit en constante evolution
-* nombre de tx en grande evolution
+* nombre de produit en constante évolution
+* nombre de tx en grande évolution
 * pas de backend (base de données, Hadoop, spark, ou autre)
-* Languages: Scala, Java, Bash.
+* Languages: Scala, Java, Bash, Go.
 
 Livrable:
 ----------
 
-Application packagées et prete a etre utilisée avec sa documentation.
+Application packagée et prête à être utilisée avec sa documentation.
 
 
-Criteres de selection:
+Critères de sélection:
 ----------------------
 
-	1. Reponse au besoin enoncé
-	2. Qualité du code et du livrabe en général
+	1. Réponse au besoin
+	2. Qualité du code et du livrable en général
 	3. Patterns/algorithmes implémentés
-	4. Nombre de dépendences (le moins on utilise de fwrk le mieux c'est)
-	5. Usabilité (fonctionnalité et exploitation)
+	4. Nombre de dépendences (le moins on utilise de frameworks le mieux c'est)
+	5. Utilisabilité (fonctionnalité et exploitation)
 	6. Maitrise des outils/environnement de developpement utilisées
 
-
-Les candidats ayant reussient ce test  viendront nous rencontrer pour discuter de leur solution et nous leur presenterons notre projet.
