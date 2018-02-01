@@ -40,7 +40,7 @@ Les résultats sont les fichiers:
 5. `top_100_ventes_<MAGASIN_ID>_YYYYMMDD-J7.data` 
 6. `top_100_ventes_GLOBAL_YYYYMMDD-J7.data`
 7. `top_100_ca_<MAGASIN_ID>_YYYYMMDD-J7.data`
-8. `top_100_ca_<MAGASIN_ID>_YYYYMMDD-J7.data`
+8. `top_100_ca_GLOBAL_YYYYMMDD-J7.data`
 
 Contexte:
 ---------
