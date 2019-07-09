@@ -17,7 +17,7 @@ object Transaction {
       Some(Transaction(sList(0).toLong, sList(1), sList(2), sList(3).toLong, sList(4).toLong))
     } catch {
       case e: Exception =>
-        Logger.getAnonymousLogger.warning(s"Caught the following exception while parsing the line $s: $e.")
+        Logger.getAnonymousLogger.warning(s"Caught the following exception while parsing the transaction line $s: $e.")
         None
     }
 
