@@ -1,8 +1,7 @@
 package com.carrefour
 
-import Transaction.getTransactions
+import Transaction.{getTransactions, addPriceToTransaction}
 import Product.{getAllProductsOfDay, productsToMap}
-import TransactionWithPrice.addPriceToTransaction
 
 object App {
 
@@ -11,7 +10,7 @@ object App {
     val transactions: List[Transaction] = getTransactions("20170514")
     val products: List[Product] = getAllProductsOfDay("20170514")
     val productsLookupMap: Map[(Long, String, String), Double] = productsToMap(products)
-    val transactionsWithPrice: List[TransactionWithPrice] = transactions.flatMap(t => addPriceToTransaction(productsLookupMap)(t))
+    val transactionsWithPrice: List[Transaction] = transactions.flatMap(t => addPriceToTransaction(productsLookupMap)(t))
     transactions.take(10).foreach(t => println(t))
     transactionsWithPrice.take(10).foreach(t => println(t))
     println(transactions.size)
