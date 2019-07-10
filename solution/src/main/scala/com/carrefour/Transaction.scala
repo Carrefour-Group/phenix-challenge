@@ -3,10 +3,19 @@ package com.carrefour
 import java.util.logging.Logger
 
 import scala.io.Source
+import Product.getProductsPriceMap
 
 case class Transaction(txId: Long, date: String, shopId: String, produit: Long, qte : Long, price: Double)
 
 object Transaction {
+
+  def getTransactions(dates: List[String]): List[Transaction] = dates.flatMap(d => getTransactionsByDateWithPrice(d, getProductsPriceMap(d)))
+
+  def getTransactionsByDateWithPrice(date: String, priceMap: Map[(Long, String, String), Double]): List[Transaction] =
+    getTransactionsByDate(date) match {
+      case Some(ts) => ts.flatMap(t => addPriceToTransaction(priceMap)(t))
+      case _ => List()
+    }
 
   def addPriceToTransaction(priceMap: Map[(Long, String, String), Double]): Transaction => Option[Transaction] =
     t => {
@@ -19,8 +28,16 @@ object Transaction {
       }
     }
 
-  def getTransactions(date: String): List[Transaction] =
-    Source.fromResource(s"transactions_$date.data").getLines.flatMap(parseTransaction(date)).toList
+  def getTransactionsByDate(date: String): Option[List[Transaction]] = {
+    try {
+      Some(Source.fromResource(s"transactions_$date.data").getLines.flatMap(parseTransaction(date)).toList)
+    } catch {
+      case e: Exception =>
+        Logger.getAnonymousLogger.warning(s"Caught the following exception while parsing transaction file of date $date: $e.")
+        None
+    }
+  }
+
 
   def parseTransaction(date: String)(s: String): Option[Transaction] = {
     val sList = s.split('|').map(_.trim)

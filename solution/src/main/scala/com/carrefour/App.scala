@@ -1,21 +1,17 @@
 package com.carrefour
 
-import Transaction.{getTransactions, addPriceToTransaction}
-import Product.{getAllProductsOfDay, productsToMap}
+import Transaction.getTransactions
 
 object App {
 
   def main(args: Array[String]): Unit = {
-    println("Hello")
-    val transactions: List[Transaction] = getTransactions("20170514")
-    val products: List[Product] = getAllProductsOfDay("20170514")
-    val productsLookupMap: Map[(Long, String, String), Double] = productsToMap(products)
-    val transactionsWithPrice: List[Transaction] = transactions.flatMap(t => addPriceToTransaction(productsLookupMap)(t))
-    transactions.take(10).foreach(t => println(t))
-    transactionsWithPrice.take(10).foreach(t => println(t))
+    val dayJ: String = "20170514"
+    val last7Days: List[String] = Utils.last7Days(dayJ)
+    last7Days.foreach(println)
+    val transactions: List[Transaction] = getTransactions(List(dayJ))
     println(transactions.size)
-    println(transactionsWithPrice.size)
-    transactions.filter(t => t.produit == 0).foreach(t => println(t))
+    transactions.take(10).foreach(println)
+
   }
 
 
