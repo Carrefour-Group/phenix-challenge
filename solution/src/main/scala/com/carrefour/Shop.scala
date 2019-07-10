@@ -1,8 +1,8 @@
 package com.carrefour
 
-object Magasin {
+object Shop {
 
-  val MagasinIds: List[String] = List(
+  val ShopIds: List[String] = List(
     "2a4b6b81-5aa2-4ad8-8ba9-ae1a006e7d71",
     "bdc2a431-797d-4b07-9567-67c565a67b84",
     "29366c83-eae9-42d3-a8af-f15339830dc5",

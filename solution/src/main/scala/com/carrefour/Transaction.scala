@@ -4,7 +4,7 @@ import java.util.logging.Logger
 
 import scala.io.Source
 
-case class Transaction(txId: Long, date: String, magasin: String, produit: Long, qte : Long)
+case class Transaction(txId: Long, date: String, shopId: String, produit: Long, qte : Long)
 
 object Transaction {
 

@@ -4,14 +4,14 @@ import java.util.logging.Logger
 
 import scala.io.Source
 
-case class Product(produit: Long, prix: Double, date: String, magasin: String)
+case class Product(produit: Long, price: Double, date: String, shopId: String)
 
 object Product {
 
   def productsToMap(products: List[Product]): Map[(Long, String, String), Double] =
-    products map (p => (p.produit, p.date, p.magasin) -> p.prix) toMap
+    products map (p => (p.produit, p.date, p.shopId) -> p.price) toMap
 
-  def getAllProductsOfDay(date: String): List[Product] = Magasin.MagasinIds.flatMap(m => getProducts(m, date))
+  def getAllProductsOfDay(date: String): List[Product] = Shop.ShopIds.flatMap(m => getProducts(m, date))
 
   def getProducts(magasin: String, date: String): List[Product] =
     Source.fromResource(s"reference_prod-$magasin" + s"_$date.data").getLines.flatMap(parseProduct(date, magasin)).toList
